@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>F1 Fan Zone - Início</title>
+  <link rel="icon" href="favicon.ico" sizes="16x16">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- RESET + FONTE ---------- */
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Orbitron',sans-serif}
+    :root{
+      --bg:#0e0e0e; --card:#1a1a1a; --accent:#ff453a; --muted:#ccc;
+      --maxw:1100px;
+    }
+
+    body{
+      background: linear-gradient(180deg,#0e0e0e 0%,#080808 100%);
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+    }
+
+    header{
+      width:100%;
+      background:var(--accent);
+      padding:22px 0;
+      text-align:center;
+      box-shadow:0 4px 6px #a70010;
+    }
+    header h1{font-size:2.6rem;text-shadow:2px 2px 6px #3b0000}
+
+    /* ---------- NAV (flexbox) ---------- */
+    nav{
+      width:100%;
+      background:var(--card);
+      display:flex;
+      justify-content:center;     /* flexbox property #1 */
+      gap:28px;
+      padding:12px 8px;
+      box-shadow:inset 0 -2px 5px #ff453a44;
+      flex-wrap:wrap;             /* flexbox property #2 (responsividade) */
+    }
+    nav a{
+      color:#f1f1f1;
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 18px;
+      border-radius:8px;
+      border:2px solid transparent;
+      transition:all .22s ease;   /* transition (animação) */
+    }
+    nav a:hover, nav a:focus{ border-color:var(--accent); background:#ff453a11; color:var(--accent) } /* pseudo-classes */
+
+    main{
+      width:100%;
+      max-width:var(--maxw);
+      padding:28px;
+      display:flex;
+      gap:24px;
+      align-items:flex-start;     /* flexbox property #3 */
+      flex-direction:column;
+    }
+
+    .hero{
+      display:flex;
+      gap:20px;
+      background:linear-gradient(90deg, rgba(255,69,58,0.03), rgba(255,69,58,0.02));
+      padding:18px;
+      border-radius:14px;
+      box-shadow:0 0 12px rgba(255,69,58,0.08);
+      align-items:center;
+    }
+
+    .hero .left{
+      flex:1;
+    }
+    .hero h2{color:var(--accent); font-size:1.8rem; margin-bottom:10px; border-bottom:2px solid var(--accent); padding-bottom:6px;}
+    .hero p{color:#ddd; line-height:1.6}
+
+    .hero .visual{
+      width:420px; max-width:45%;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 6px 24px rgba(0,0,0,0.6);
+      border:3px solid rgba(255,69,58,0.08);
+    }
+    .hero .visual img{display:block;width:100%;height:auto;object-fit:cover}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:16px;
+      border-radius:12px;
+      box-shadow:0 0 12px rgba(255,69,58,0.18);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(255,69,58,0.28) }
+
+    .card h3{ color:var(--accent); margin-bottom:8px }
+    .card p{ color:var(--muted); line-height:1.5 }
+
+    .circuit-thumb{ width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.6); }
+
+    /* lista estilizada */
+    ul.features{ list-style:none; padding-left:14px; color:#ffb3a8 }
+    ul.features li{ margin:8px 0; position:relative; padding-left:18px }
+    ul.features li::before{ content:'🏁'; position:absolute; left:0; top:0 }
+
+    /* footer */
+    footer{ width:100%; background:var(--card); padding:14px 10px; text-align:center; color:#aaa; box-shadow:inset 0 2px 5px #ff453a44; margin-top:20px }
+
+    /* anchor exemplo interno */
+    .goto-news{ display:inline-block; margin-top:8px; color:var(--accent); text-decoration:none; font-weight:700 }
+
+    /* responsiveness: unidades relativas + media query */
+    @media (max-width:760px){
+      .hero{ flex-direction:column; align-items:stretch }
+      .hero .visual{ max-width:100%; width:100% }
+      header h1 { font-size:1.8rem }
+    }
+
+    /* media print (obrigatório em pelo menos uma página) */
+    @media print{
+      nav, .hero .visual, .card:hover { display:none !important}
+      body{ background:#fff; color:#000 }
+      footer{ display:none }
+    }
+  </style>
+</head>
+<body>
+  <header><h1>F1 Fan Zone</h1></header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="cadastro.html">Cadastro</a>
+    <a href="fan.html">Área do Fã</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="ranking.html">Ranking</a>
+  </nav>
+
+  <main>
+    <section class="hero" aria-label="Apresentação">
+      <div class="left">
+        <h2>Seu portal independente sobre Fórmula 1</h2>
+        <p>Notícias, análises, ranking e uma comunidade de fãs. Acompanhe corridas, circuitos e tudo sobre os pilotos.</p>
+        <a class="goto-news" href="noticias.html#principais">Ir para notícias →</a> <!-- âncora -->
+      </div>
+      <div class="visual">
+        <!-- imagem fornecida pelo usuário -->
+        <img src="ultrapassagem.jpg" alt="Ultrapassagem épica - Verstappen vs Leclerc">
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Blocos">
+      <article class="card">
+        <h3>Calendário e Circuitos</h3>
+        <p>Encontre mapas e detalhes dos circuitos, como o exigente traçado de Mônaco.</p>
+        <img class="circuit-thumb" src="circuito.png" alt="Mapa do circuito de Mônaco">
+      </article>
+
+      <article class="card">
+        <h3>Equipes e Estratégias</h3>
+        <p>Conteúdo sobre montagens de box, pit-stops e novidades técnicas. Veja dicas e análises de bastidores.</p>
+        <img class="circuit-thumb" src="pitstop.png" alt="Pit stop de equipe">
+      </article>
+
+      <article class="card">
+        <h3>Galeria</h3>
+        <p>Fotos emblemáticas e imagens de destaque das corridas.</p>
+        <img class="circuit-thumb" src="Ferrari.jpg" alt="Ferrari na pista">
+      </article>
+
+      <article class="card">
+        <h3>Cadastre-se</h3>
+        <p>Participe da comunidade para acessar conteúdo exclusivo e quizzes.</p>
+        <a class="goto-news" href="cadastro.html">Ir para cadastro →</a>
+      </article>
+    </section>
+
+    <!-- Lista de recursos (exemplo de lista estilizada) -->
+    <section class="card" style="margin-top:18px">
+      <h3>O que você encontra aqui</h3>
+      <ul class="features">
+        <li>Notícias atualizadas</li>
+        <li>Ranking de pilotos e equipes</li>
+        <li>Área exclusiva para fãs cadastrados</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>© 2025 F1 Fan Zone — Feito por fãs, para fãs.</footer>
+</body>
+</html>
